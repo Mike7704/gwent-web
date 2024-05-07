@@ -1,4 +1,5 @@
 import { Inter } from "next/font/google";
+import MusicPlayer from "@/components/MusicPlayer";
 import "@/styles/reset.css";
 import "@/styles/globals.css";
 
@@ -14,6 +15,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className} suppressHydrationWarning={true}>
         {children}
+        <MusicPlayer />
       </body>
     </html>
   );

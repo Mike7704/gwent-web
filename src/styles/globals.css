@@ -3,5 +3,49 @@
 @tailwind utilities;
 
 body {
-  background-color: beige;
+  background-color: rgb(26, 26, 26);
+  color: white;
+}
+
+.background-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -99;
+}
+
+.gwent-logo {
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: 0.3s ease-in-out;
+}
+.gwent-logo:hover {
+  transform: translate(-50%, -50%) scale(1.01);
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3)) brightness(110%);
+}
+
+.main-menu {
+  background-image: url("/images/menus/mainMenu.png");
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-button {
+  padding: 2px 5px;
+  border: 2px solid white;
+  border-radius: 8px;
 }
