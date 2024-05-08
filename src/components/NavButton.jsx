@@ -1,18 +1,14 @@
 "use client";
 import Link from "next/link";
-import { Howl } from "howler";
-
-const hoverSound = new Howl({
-  src: ["/sounds/mouseHover.mp3"],
-});
+import sounds from "@/utils/audio/sounds";
 
 export default function NavButton({ href, children }) {
-  const playHoverSound = () => {
-    hoverSound.play();
+  const handleMouseEnter = () => {
+    sounds.mouseHover.play();
   };
 
   return (
-    <Link className="menu-button" href={href} onMouseEnter={playHoverSound}>
+    <Link className="menu-button" href={href} onMouseEnter={handleMouseEnter}>
       {children}
     </Link>
   );

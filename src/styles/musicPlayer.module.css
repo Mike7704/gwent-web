@@ -1,11 +1,11 @@
 .container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
-  gap: 10px;
+  align-items: flex-start;
   position: fixed;
-  top: 5px;
-  left: 5px;
+  top: 0;
+  left: 0;
   z-index: 999;
   border-radius: 10px;
 }
@@ -14,11 +14,28 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+}
+
+.icon {
+  border-radius: 50%;
+  cursor: pointer;
+}
+.icon:hover {
+  filter: brightness(110%) drop-shadow(0 0 10px currentColor);
 }
 
 .volume_slider {
+  cursor: pointer;
+  width: 128px;
+  margin: 0rem 20px;
+}
+.volume_slider:hover,
+.volume_slider:active {
+  filter: brightness(110%) drop-shadow(0 0 10px currentColor);
 }
 
 .song_name {
+  font-family: "GWENT", Arial;
+  font-size: 1.5rem;
+  margin-left: 0.5rem;
 }

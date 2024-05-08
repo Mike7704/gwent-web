@@ -2,6 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "GWENT";
+  src: url("/fonts/hinted-GWENT-ExtraBold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "HalisGR-Bold";
+  src: url("/fonts/hinted-HalisGR-Bold.woff") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "HalisGR-Book";
+  src: url("/fonts/hinted-HalisGR-Book.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "HalisGR-Light";
+  src: url("/fonts/hinted-HalisGR-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+}
+
 body {
   background-color: rgb(26, 26, 26);
   color: white;
@@ -46,6 +74,14 @@ body {
 
 .menu-button {
   padding: 2px 5px;
-  border: 2px solid white;
   border-radius: 8px;
+  font-family: "GWENT", Arial;
+  font-size: 30px;
+  color: #8e711f;
+  text-shadow: 0 2px 15px rgba(0, 0, 0, 0.77);
+  background-image: linear-gradient(180deg, #9b721d, #ffff83);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: none;
 }
