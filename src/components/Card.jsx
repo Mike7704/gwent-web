@@ -22,10 +22,10 @@ export default function Card({ card, scale }) {
 
   const baseFontSizeQuote = drawBanner
     ? card.quote.length > 150
-      ? 0.95
-      : card.quote.length > 140
       ? 1
-      : 1.1
+      : card.quote.length > 140
+      ? 1.1
+      : 1.2
     : card.quote.length > 150
     ? 1.1
     : 1.2;
@@ -74,21 +74,33 @@ export default function Card({ card, scale }) {
         width={370}
         height={531}
       />
-      <Image
-        className={cardStyle.strength_icon}
-        src={getStrengthIcon(card.type)}
-        alt={"strength icon"}
-        width={152}
-        height={152}
-      />
-      <Image
-        className={cardStyle.range_icon}
-        src={getRangeIcon(card.range)}
-        alt={"range icon"}
-        width={103}
-        height={115}
-      />
-      {card.ability && (
+      {card.type === "special" ? (
+        <Image
+          className={cardStyle.special_ability_icon}
+          src={getSpecialAbilityIcon(card.ability)}
+          alt={"ability icon"}
+          width={103}
+          height={115}
+        />
+      ) : (
+        <Image
+          className={cardStyle.strength_icon}
+          src={getStrengthIcon(card.type)}
+          alt={"strength icon"}
+          width={152}
+          height={152}
+        />
+      )}
+      {card.range && (
+        <Image
+          className={cardStyle.range_icon}
+          src={getRangeIcon(card.range)}
+          alt={"range icon"}
+          width={103}
+          height={115}
+        />
+      )}
+      {card.ability && card.type !== "special" && (
         <Image
           className={cardStyle.ability_icon}
           src={getAbilityIcon(card.ability)}
@@ -171,6 +183,36 @@ function getBorder(faction, type) {
       return "/images/cards/components/border_skellige.png";
     default:
       return "/images/cards/components/border_neutral.png";
+  }
+}
+
+function getSpecialAbilityIcon(ability) {
+  // Special cards
+  switch (ability) {
+    case "clear":
+      return "/images/cards/components/card_ability_clear.png";
+    case "decoy":
+      return "/images/cards/components/card_ability_decoy.png";
+    case "fog":
+      return "/images/cards/components/card_ability_fog.png";
+    case "frost":
+      return "/images/cards/components/card_ability_frost.png";
+    case "horn":
+      return "/images/cards/components/card_ability_horn2.png";
+    case "mardroeme":
+      return "/images/cards/components/card_ability_mardroeme2.png";
+    case "rain":
+      return "/images/cards/components/card_ability_rain.png";
+    case "scorch":
+      return "/images/cards/components/card_ability_scorch.png";
+    case "scorchrow":
+      return "/images/cards/components/card_ability_scorch_row2.png";
+    case "drawenemydiscard":
+      return "/images/cards/components/card_ability_spy2.png";
+    case ("storm", "nature", "whitefrost"):
+      return "/images/cards/components/card_ability_storm.png";
+    default:
+      throw new Error(`Failed to draw strength icon for special card ability: ${ability}`);
   }
 }
 
