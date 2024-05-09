@@ -1,0 +1,100 @@
+.container {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 0.4rem;
+}
+
+.image,
+.bottom_panel,
+.banner,
+.border,
+.strength_icon,
+.range_icon,
+.ability_icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: contain;
+  width: 100%;
+  height: auto;
+}
+.bottom_panel {
+  top: auto;
+  bottom: 0;
+}
+.banner {
+  width: 26.5%;
+}
+.border {
+  object-fit: fill;
+  height: 100%;
+}
+.strength_icon {
+  width: 41%;
+}
+.range_icon {
+  top: 22.5%;
+  width: 28%;
+}
+.ability_icon {
+  top: 40%;
+  width: 28%;
+}
+
+.name_container,
+.name_container_banner {
+  position: absolute;
+  bottom: 15%;
+  left: 6%;
+  width: 88%;
+  height: 6%;
+  overflow: hidden;
+  text-align: center;
+  align-content: center;
+  line-height: 0;
+  font-family: "GWENT";
+  white-space: nowrap;
+  color: black;
+  text-shadow: 0 0 0.2rem white;
+}
+.name_container_banner {
+  left: 22%;
+  width: 73%;
+}
+
+.quote_container,
+.quote_container_banner {
+  position: absolute;
+  bottom: 2%;
+  left: 6%;
+  width: 88%;
+  height: 12%;
+  overflow: hidden;
+  text-align: center;
+  line-height: 0.9;
+  font-family: "Roboto";
+  font-style: italic;
+  white-space: wrap;
+  color: black;
+  text-shadow: 0px 0px 0.05rem rgba(0, 0, 0, 0.2), 0 0 0.2rem white;
+}
+.quote_container_banner {
+  left: 22%;
+  width: 73%;
+}
+
+.strength_container {
+  position: absolute;
+  top: 4%;
+  left: 5.5%;
+  width: 17%;
+  height: 11.5%;
+  overflow: hidden;
+  text-align: center;
+  align-content: center;
+  line-height: 0;
+  border-radius: 50%;
+  font-family: "GWENT";
+  white-space: nowrap;
+}
