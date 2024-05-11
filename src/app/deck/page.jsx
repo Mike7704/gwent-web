@@ -1,8 +1,8 @@
-import BackgroundVideo from "@/components/BackgroundVideo";
-import NavButton from "@/components/NavButton";
+import BackgroundVideo from "@/components/menu/BackgroundVideo";
+import NavButton from "@/components/menu/NavButton";
 import Card from "@/components/Card";
-import specialCardsData from "@/utils/decks/special.json";
-import neutralCardsData from "@/utils/decks/neutral.json";
+import { Faction } from "@/utils/enums.js";
+import { getDeck } from "@/utils/decks/getDeck.js";
 
 export default function DeckMenu() {
   return (
@@ -11,10 +11,13 @@ export default function DeckMenu() {
         <h1>Deck Menu</h1>
         <h2>Neutral Cards</h2>
         <div className="card-container">
-          {neutralCardsData.cards.map((card) => (
+          {getDeck(Faction.NEUTRAL).cards.map((card) => (
             <Card key={card.id} card={card} scale={0.55} />
           ))}
-          {specialCardsData.cards.map((card) => (
+          {getDeck(Faction.SPECIAL).cards.map((card) => (
+            <Card key={card.id} card={card} scale={0.55} />
+          ))}
+          {getDeck(Faction.NORTHERN_REALMS).cards.map((card) => (
             <Card key={card.id} card={card} scale={0.55} />
           ))}
         </div>

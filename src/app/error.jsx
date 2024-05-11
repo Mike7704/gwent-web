@@ -1,5 +1,5 @@
 "use client";
-import GwentLogo from "@/components/GwentLogo";
+import GwentLogo from "@/components/menu/GwentLogo";
 
 export default function GlobalError({ error, reset }) {
   return (

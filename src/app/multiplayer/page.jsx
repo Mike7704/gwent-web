@@ -1,4 +1,4 @@
-import NavButton from "@/components/NavButton";
+import NavButton from "@/components/menu/NavButton";
 
 export default function Multiplayer() {
   return (

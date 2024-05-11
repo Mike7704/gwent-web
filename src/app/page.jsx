@@ -1,6 +1,6 @@
-import BackgroundVideo from "@/components/BackgroundVideo";
-import GwentLogo from "@/components/GwentLogo";
-import NavButton from "@/components/NavButton";
+import BackgroundVideo from "@/components/menu/BackgroundVideo";
+import GwentLogo from "@/components/menu/GwentLogo";
+import NavButton from "@/components/menu/NavButton";
 
 export default function Home() {
   return (

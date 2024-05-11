@@ -1,6 +1,6 @@
 "use client";
-import GwentLogo from "@/components/GwentLogo";
-import NavButton from "@/components/NavButton";
+import GwentLogo from "@/components/menu/GwentLogo";
+import NavButton from "@/components/menu/NavButton";
 
 export default function NotFound() {
   return (

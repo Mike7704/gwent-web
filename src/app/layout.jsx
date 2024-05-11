@@ -1,9 +1,6 @@
-import { Inter } from "next/font/google";
 import MusicPlayer from "@/components/MusicPlayer";
 import "@/styles/reset.css";
 import "@/styles/globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Gwent",
@@ -13,7 +10,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className} suppressHydrationWarning={true}>
+      <body suppressHydrationWarning={true}>
         {children}
         <MusicPlayer />
       </body>

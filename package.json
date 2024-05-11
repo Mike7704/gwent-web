@@ -2,6 +2,9 @@
   "name": "gwent-web",
   "version": "0.1.0",
   "private": true,
+  "author": "Michael Cowley",
+  "license": "MIT",
+  "description": "A Next.js remake of the Gwent mini-game from The Witcher 3: Wild Hunt.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
