@@ -3,10 +3,10 @@
   overflow: hidden;
   cursor: pointer;
   border-radius: 0.4rem;
-  transition: filter 0.4s ease;
+  transition: filter 0.8s ease;
 }
 .container:hover {
-  filter: brightness(108%);
+  filter: brightness(110%);
   transition: filter 0.2s ease;
 }
 
@@ -22,8 +22,6 @@
   top: 0;
   left: 0;
   object-fit: contain;
-  width: 100%;
-  height: auto;
 }
 .bottom_panel {
   top: auto;
@@ -78,7 +76,7 @@
   bottom: 2%;
   left: 6%;
   width: 88%;
-  height: 12%;
+  height: 12.5%;
   overflow: hidden;
   text-align: center;
   line-height: 0.9;

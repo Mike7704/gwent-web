@@ -1,3 +1,4 @@
+import DisableContextMenu from "@/components/utils/DisableContextMenu";
 import MusicPlayer from "@/components/MusicPlayer";
 import "@/styles/reset.css";
 import "@/styles/globals.css";
@@ -11,8 +12,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body suppressHydrationWarning={true}>
-        {children}
-        <MusicPlayer />
+        <DisableContextMenu>
+          {children}
+          <MusicPlayer />
+        </DisableContextMenu>
       </body>
     </html>
   );

@@ -1,10 +1,10 @@
 "use client";
+import { Faction, CardType, CardRange, CardAbility } from "@/utils/enums";
 import Image from "next/image";
 import sounds from "@/utils/audio/sounds";
 import cardStyle from "@/styles/card.module.css";
-import { Faction, CardType, CardRange, CardAbility } from "@/utils/enums";
 
-export default function Card({ card, scale }) {
+export default function Card({ card, scale, handleClick }) {
   const width = 370 * scale;
   const height = 575 * scale;
 
@@ -41,7 +41,13 @@ export default function Card({ card, scale }) {
   };
 
   return (
-    <div className={cardStyle.container} style={{ width, height }} onMouseEnter={handleMouseEnter}>
+    <div
+      className={cardStyle.container}
+      style={{ minWidth: width, minHeight: height }}
+      onMouseEnter={handleMouseEnter}
+      onClick={(e) => handleClick && handleClick(e, card)}
+      onContextMenu={(e) => handleClick && handleClick(e, card)}
+    >
       {card.videoPath === "TEMP" ? (
         <video className={cardStyle.image} autoPlay loop muted playsInline>
           <source src={`/images/cards/${card.videoPath}`} type="video/mp4" />
