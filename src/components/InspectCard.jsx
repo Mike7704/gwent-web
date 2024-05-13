@@ -8,14 +8,23 @@ import inspectStyle from "@/styles/inspectCard.module.css";
 
 export default function InspectCard({ card }) {
   const [isVisible, setIsVisible] = useState(false);
+  const [currentCard, setCurrentCard] = useState(card);
 
   // Make visible when inspect card changes
   useEffect(() => {
     setIsVisible(true);
+    setCurrentCard(card);
   }, [card]);
 
   const handleClose = () => {
     setIsVisible(false);
+  };
+
+  // Inspect target card when clicked
+  const handleClick = (e, targetCard) => {
+    e.preventDefault();
+    e.stopPropagation(); // Don't close dialog window
+    setCurrentCard(targetCard);
   };
 
   return (
@@ -24,25 +33,23 @@ export default function InspectCard({ card }) {
       <Dialog.Portal>
         <Dialog.Overlay className={inspectStyle.overlay} onClick={handleClose} onContextMenu={handleClose}>
           <Dialog.Content className={inspectStyle.container}>
-            <div className={inspectStyle.container}>
-              <div className={inspectStyle.card}>
-                <Card card={card} scale={1} />
-              </div>
-              <div className={inspectStyle.info}>
-                <h2>{card.ability}</h2>
-                <p>{getAbilityDescription(card.ability)}</p>
-                {card.target && (
-                  <>
-                    <p>Targets:</p>
-                    <div className={inspectStyle.targets}>
-                      {card.target.map((target) => (
-                        <Card key={target.id} card={getCard(target.id)} scale={0.55} />
-                      ))}
-                    </div>
-                  </>
-                )}
-                <p>Click anywhere to close.</p>
-              </div>
+            <div className={inspectStyle.card}>
+              <Card card={currentCard} scale={1} />
+            </div>
+            <div className={inspectStyle.info}>
+              <h2>{currentCard.ability}</h2>
+              <p>{getAbilityDescription(currentCard.ability)}</p>
+              {currentCard.target && (
+                <>
+                  <p>Targets:</p>
+                  <div className={inspectStyle.targets}>
+                    {currentCard.target.map((target) => (
+                      <Card key={target.id} card={getCard(target.id)} scale={0.55} handleClick={handleClick} />
+                    ))}
+                  </div>
+                </>
+              )}
+              <p>Click anywhere to close.</p>
             </div>
           </Dialog.Content>
         </Dialog.Overlay>

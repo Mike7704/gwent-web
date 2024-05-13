@@ -1,4 +1,3 @@
-"use client";
 import { Faction, CardType, CardRange, CardAbility } from "@/utils/enums";
 import Image from "next/image";
 import sounds from "@/utils/audio/sounds";
@@ -68,6 +67,7 @@ export default function Card({ card, scale, handleClick }) {
         alt={"panel"}
         width={370}
         height={128}
+        priority
       />
       {drawBanner && (
         <Image
@@ -76,6 +76,7 @@ export default function Card({ card, scale, handleClick }) {
           alt={"faction banner"}
           width={98}
           height={575}
+          priority
         />
       )}
       <Image
@@ -84,6 +85,7 @@ export default function Card({ card, scale, handleClick }) {
         alt={"border"}
         width={370}
         height={531}
+        priority
       />
       {card.type === CardType.SPECIAL ? (
         <Image
@@ -92,6 +94,7 @@ export default function Card({ card, scale, handleClick }) {
           alt={"ability icon"}
           width={103}
           height={115}
+          priority
         />
       ) : (
         <Image
@@ -100,6 +103,7 @@ export default function Card({ card, scale, handleClick }) {
           alt={"strength icon"}
           width={152}
           height={152}
+          priority
         />
       )}
       {card.range && (
@@ -109,6 +113,7 @@ export default function Card({ card, scale, handleClick }) {
           alt={"range icon"}
           width={103}
           height={115}
+          priority
         />
       )}
       {card.ability && card.type !== CardType.SPECIAL && (
@@ -118,6 +123,7 @@ export default function Card({ card, scale, handleClick }) {
           alt={"ability icon"}
           width={103}
           height={115}
+          priority
         />
       )}
 
@@ -151,28 +157,28 @@ function getPanel(type, drawBanner) {
   // No banner version
   if (!drawBanner) {
     return type === CardType.HERO
-      ? "/images/cards/components/card_hero_description.png"
-      : "/images/cards/components/card_description.png";
+      ? "/images/cards/components/card_hero_description.webp"
+      : "/images/cards/components/card_description.webp";
   }
   // Banner version
   return type === CardType.HERO
-    ? "/images/cards/components/card_hero_description_banner.png"
-    : "/images/cards/components/card_description_banner.png";
+    ? "/images/cards/components/card_hero_description_banner.webp"
+    : "/images/cards/components/card_description_banner.webp";
 }
 
 // Display banner image based on faction.
 function getBanner(faction) {
   switch (faction) {
     case Faction.NORTHERN_REALMS:
-      return "/images/cards/components/banner_northern_realms.png";
+      return "/images/cards/components/banner_northern_realms.webp";
     case Faction.NILFGAARD:
-      return "/images/cards/components/banner_nilfgaard.png";
+      return "/images/cards/components/banner_nilfgaard.webp";
     case Faction.SCOIATAEL:
-      return "/images/cards/components/banner_scoiatael.png";
+      return "/images/cards/components/banner_scoiatael.webp";
     case Faction.MONSTERS:
-      return "/images/cards/components/banner_monsters.png";
+      return "/images/cards/components/banner_monsters.webp";
     case Faction.SKELLIGE:
-      return "/images/cards/components/banner_skellige.png";
+      return "/images/cards/components/banner_skellige.webp";
     default:
       throw new Error(`Failed to draw banner for faction: ${faction}`);
   }
@@ -181,22 +187,22 @@ function getBanner(faction) {
 // Display border image based on faction and card type.
 function getBorder(faction, type) {
   if (type === CardType.HERO) {
-    return "/images/cards/components/border_hero.png";
+    return "/images/cards/components/border_hero.webp";
   }
 
   switch (faction) {
     case Faction.NORTHERN_REALMS:
-      return "/images/cards/components/border_northern_realms.png";
+      return "/images/cards/components/border_northern_realms.webp";
     case Faction.NILFGAARD:
-      return "/images/cards/components/border_nilfgaard.png";
+      return "/images/cards/components/border_nilfgaard.webp";
     case Faction.SCOIATAEL:
-      return "/images/cards/components/border_scoiatael.png";
+      return "/images/cards/components/border_scoiatael.webp";
     case Faction.MONSTERS:
-      return "/images/cards/components/border_monsters.png";
+      return "/images/cards/components/border_monsters.webp";
     case Faction.SKELLIGE:
-      return "/images/cards/components/border_skellige.png";
+      return "/images/cards/components/border_skellige.webp";
     default:
-      return "/images/cards/components/border_neutral.png";
+      return "/images/cards/components/border_neutral.webp";
   }
 }
 
@@ -204,78 +210,80 @@ function getSpecialAbilityIcon(ability) {
   // Special cards
   switch (ability) {
     case CardAbility.CLEAR:
-      return "/images/cards/components/card_ability_clear.png";
+      return "/images/cards/components/card_ability_clear.webp";
     case CardAbility.DECOY:
-      return "/images/cards/components/card_ability_decoy.png";
+      return "/images/cards/components/card_ability_decoy.webp";
     case CardAbility.FOG:
-      return "/images/cards/components/card_ability_fog.png";
+      return "/images/cards/components/card_ability_fog.webp";
     case CardAbility.FROST:
-      return "/images/cards/components/card_ability_frost.png";
+      return "/images/cards/components/card_ability_frost.webp";
     case CardAbility.HORN:
-      return "/images/cards/components/card_ability_horn2.png";
+      return "/images/cards/components/card_ability_horn2.webp";
     case CardAbility.MARDROEME:
-      return "/images/cards/components/card_ability_mardroeme2.png";
+      return "/images/cards/components/card_ability_mardroeme2.webp";
     case CardAbility.RAIN:
-      return "/images/cards/components/card_ability_rain.png";
+      return "/images/cards/components/card_ability_rain.webp";
     case CardAbility.SCORCH:
-      return "/images/cards/components/card_ability_scorch.png";
+      return "/images/cards/components/card_ability_scorch.webp";
     case CardAbility.SCORCH_ROW:
-      return "/images/cards/components/card_ability_scorch_row2.png";
+      return "/images/cards/components/card_ability_scorch_row2.webp";
     case CardAbility.DRAW_ENEMY_DISCARD:
-      return "/images/cards/components/card_ability_spy2.png";
-    case (CardAbility.STORM, CardAbility.NATURE, CardAbility.WHITEFROST):
-      return "/images/cards/components/card_ability_storm.png";
+      return "/images/cards/components/card_ability_spy2.webp";
+    case CardAbility.STORM:
+    case CardAbility.NATURE:
+    case CardAbility.WHITEFROST:
+      return "/images/cards/components/card_ability_storm.webp";
     default:
-      throw new Error(`Failed to draw strength icon for special card ability: ${ability}`);
+      throw new Error(`Failed to draw ability icon for special card ability: ${ability}`);
   }
 }
 
 function getStrengthIcon(type) {
   return type === CardType.HERO
-    ? "/images/cards/components/power_hero.png"
-    : "/images/cards/components/power_normal.png";
+    ? "/images/cards/components/power_hero.webp"
+    : "/images/cards/components/power_normal.webp";
 }
 
 function getRangeIcon(range) {
   switch (range) {
     case CardRange.MELEE:
-      return "/images/cards/components/card_row_close.png";
+      return "/images/cards/components/card_row_close.webp";
     case CardRange.AGILE:
-      return "/images/cards/components/card_row_agile.png";
+      return "/images/cards/components/card_row_agile.webp";
     case CardRange.RANGED:
-      return "/images/cards/components/card_row_ranged.png";
+      return "/images/cards/components/card_row_ranged.webp";
     case CardRange.SIEGE:
-      return "/images/cards/components/card_row_siege.png";
+      return "/images/cards/components/card_row_siege.webp";
     default:
-      throw new Error(`Failed to draw range icon for card type: ${type}`);
+      throw new Error(`Failed to draw range icon for range: ${range}`);
   }
 }
 
 function getAbilityIcon(ability) {
   switch (ability) {
     case CardAbility.AVENGER:
-      return "/images/cards/components/card_ability_avenger.png";
+      return "/images/cards/components/card_ability_avenger.webp";
     case CardAbility.MORPH:
-      return "/images/cards/components/card_ability_morph.png";
+      return "/images/cards/components/card_ability_morph.webp";
     case CardAbility.BOND:
-      return "/images/cards/components/card_ability_bond.png";
+      return "/images/cards/components/card_ability_bond.webp";
     case CardAbility.HORN:
-      return "/images/cards/components/card_ability_horn.png";
+      return "/images/cards/components/card_ability_horn.webp";
     case CardAbility.MARDROEME:
-      return "/images/cards/components/card_ability_mardroeme.png";
+      return "/images/cards/components/card_ability_mardroeme.webp";
     case CardAbility.MEDIC:
-      return "/images/cards/components/card_ability_medic.png";
+      return "/images/cards/components/card_ability_medic.webp";
     case CardAbility.MORALE:
-      return "/images/cards/components/card_ability_morale.png";
+      return "/images/cards/components/card_ability_morale.webp";
     case CardAbility.MUSTER:
-      return "/images/cards/components/card_ability_muster.png";
+      return "/images/cards/components/card_ability_muster.webp";
     case CardAbility.SCORCH:
-      return "/images/cards/components/card_ability_scorch2.png";
+      return "/images/cards/components/card_ability_scorch2.webp";
     case CardAbility.SCORCH_ROW:
-      return "/images/cards/components/card_ability_scorch_row.png";
+      return "/images/cards/components/card_ability_scorch_row.webp";
     case CardAbility.SPY:
-      return "/images/cards/components/card_ability_spy.png";
+      return "/images/cards/components/card_ability_spy.webp";
     default:
-      throw new Error(`Failed to draw ability icon for card ability: ${ability}`);
+      throw new Error(`Failed to draw ability icon for ability: ${ability}`);
   }
 }

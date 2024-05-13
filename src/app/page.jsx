@@ -13,6 +13,7 @@ export default function Home() {
         <NavButton href="/deck">Deck</NavButton>
         <NavButton href="/challenges">Challenges</NavButton>
         <NavButton href="/store">Store</NavButton>
+        <NavButton href="/leaderboard">Leaderboard</NavButton>
         <NavButton href="/settings">Settings</NavButton>
       </div>
     </main>

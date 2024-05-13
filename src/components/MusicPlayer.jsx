@@ -161,7 +161,7 @@ export default function MusicPlayer() {
           <div className={musicStyle.controls}>
             <Image
               className={musicStyle.icon}
-              src="/images/buttons/MusicPrevButton.png"
+              src="/images/buttons/MusicPrevButton.webp"
               alt="Previous"
               width={42}
               height={42}
@@ -170,7 +170,7 @@ export default function MusicPlayer() {
             />
             <Image
               className={musicStyle.icon}
-              src={isPlaying ? "/images/buttons/MusicPauseButton.png" : "/images/buttons/MusicPlayButton.png"}
+              src={isPlaying ? "/images/buttons/MusicPauseButton.webp" : "/images/buttons/MusicPlayButton.webp"}
               alt="Play/Pause"
               width={42}
               height={42}
@@ -179,7 +179,7 @@ export default function MusicPlayer() {
             />
             <Image
               className={musicStyle.icon}
-              src="/images/buttons/MusicNextButton.png"
+              src="/images/buttons/MusicNextButton.webp"
               alt="Next"
               width={42}
               height={42}
@@ -188,7 +188,9 @@ export default function MusicPlayer() {
             />
             <Image
               className={musicStyle.icon}
-              src={shuffleMode ? "/images/buttons/MusicShuffleButton.png" : "/images/buttons/MusicNoShuffleButton.png"}
+              src={
+                shuffleMode ? "/images/buttons/MusicShuffleButton.webp" : "/images/buttons/MusicNoShuffleButton.webp"
+              }
               alt="Shuffle"
               width={42}
               height={42}
@@ -211,7 +213,7 @@ export default function MusicPlayer() {
         <div onMouseEnter={handleShowControls} className={musicStyle.controls}>
           <Image
             className={musicStyle.icon}
-            src="/images/buttons/MusicButton.png"
+            src="/images/buttons/MusicButton.webp"
             alt="Previous"
             width={42}
             height={42}

@@ -34,7 +34,7 @@ export default function GwentLogo() {
   return (
     <Image
       className="gwent-logo"
-      src="/images/menus/logo.png"
+      src="/images/menus/logo.webp"
       alt="Logo"
       width={434}
       height={276}
