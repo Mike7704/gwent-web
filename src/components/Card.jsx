@@ -73,7 +73,7 @@ export default function Card({ card, scale, handleClick }) {
         <Image
           className={cardStyle.banner}
           src={getBanner(card.faction)}
-          alt={"faction banner"}
+          alt={card.faction + " banner"}
           width={98}
           height={575}
           priority
@@ -91,7 +91,7 @@ export default function Card({ card, scale, handleClick }) {
         <Image
           className={cardStyle.special_ability_icon}
           src={getSpecialAbilityIcon(card.ability)}
-          alt={"ability icon"}
+          alt={card.ability + " icon"}
           width={103}
           height={115}
           priority
@@ -110,7 +110,7 @@ export default function Card({ card, scale, handleClick }) {
         <Image
           className={cardStyle.range_icon}
           src={getRangeIcon(card.range)}
-          alt={"range icon"}
+          alt={card.range + " icon"}
           width={103}
           height={115}
           priority
@@ -120,7 +120,7 @@ export default function Card({ card, scale, handleClick }) {
         <Image
           className={cardStyle.ability_icon}
           src={getAbilityIcon(card.ability)}
-          alt={"ability icon"}
+          alt={card.ability + " icon"}
           width={103}
           height={115}
           priority

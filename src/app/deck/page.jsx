@@ -1,15 +1,19 @@
 "use client";
-import { useState, useMemo } from "react";
+import { useState, useEffect, useMemo } from "react";
 import BackgroundVideo from "@/components/menu/BackgroundVideo";
 import NavButton from "@/components/menu/NavButton";
 import Card from "@/components/Card";
 import InspectCard from "@/components/InspectCard";
 import { Faction } from "@/utils/enums.js";
-import { sortDeck } from "@/utils/sort.js";
+import { usePlayerDeck } from "@/utils/context/playerDeck.js";
 import { getDeck } from "@/utils/decks/getDeck.js";
 import { getCard } from "@/utils/decks/getCard.js";
+import { sortDeck } from "@/utils/decks/sort.js";
+import sounds from "@/utils/audio/sounds";
 
 export default function DeckMenu() {
+  const { playerDeck, playerDeckAddCard, playerDeckRemoveCard, playerDeckContainsCard } = usePlayerDeck();
+
   const [cardToInspect, setCardToInspect] = useState(null);
   const [currentFaction, setCurrentFaction] = useState(Faction.NORTHERN_REALMS);
 
@@ -26,9 +30,18 @@ export default function DeckMenu() {
   const handleClick = (e, card) => {
     e.preventDefault();
     if (e.type === "click") {
-      console.log(card.name);
+      if (!playerDeckContainsCard(card.id)) {
+        //playerDeck.addCard(card);
+        playerDeckAddCard(card);
+        sounds.addCard.play();
+      } else {
+        //playerDeck.removeCard(card);
+        playerDeckRemoveCard(card.id);
+        sounds.redrawCard.play();
+      }
     } else if (e.type === "contextmenu") {
-      setCardToInspect(getCard(card.id));
+      setCardToInspect(getCard(card));
+      sounds.openDeck.volume(0.3).play();
     }
   };
 
@@ -53,10 +66,17 @@ export default function DeckMenu() {
             Skellige
           </button>
         </div>
-        <div className="card-container">
-          {currentFactionDeck.map((card) => (
-            <Card key={card.id} card={card} scale={0.55} handleClick={handleClick} />
-          ))}
+        <div className="card-containers">
+          <div className="card-container">
+            {currentFactionDeck.map((card) => (
+              <Card key={card.id} card={card} scale={0.53} handleClick={handleClick} />
+            ))}
+          </div>
+          <div className="card-container">
+            {playerDeck.map((card) => (
+              <Card key={card.id} card={card} scale={0.53} handleClick={handleClick} />
+            ))}
+          </div>
         </div>
         <NavButton href="/">Back</NavButton>
         {cardToInspect && <InspectCard card={cardToInspect} />}

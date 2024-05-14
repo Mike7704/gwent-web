@@ -44,7 +44,7 @@ export default function InspectCard({ card }) {
                   <p>Targets:</p>
                   <div className={inspectStyle.targets}>
                     {currentCard.target.map((target) => (
-                      <Card key={target.id} card={getCard(target.id)} scale={0.55} handleClick={handleClick} />
+                      <Card key={target.id} card={getCard(target)} scale={0.53} handleClick={handleClick} />
                     ))}
                   </div>
                 </>

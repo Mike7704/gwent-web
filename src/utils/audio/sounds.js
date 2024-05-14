@@ -82,6 +82,7 @@ const gameLoss = new Howl({
 
 const openDeck = new Howl({
   src: ["/sounds/openDeck.mp3"],
+  volume: 0.5,
 });
 
 const redrawCardsStart = new Howl({
