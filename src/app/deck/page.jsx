@@ -1,15 +1,17 @@
 "use client";
 import { useState, useEffect, useMemo } from "react";
 import BackgroundVideo from "@/components/menu/BackgroundVideo";
+import MenuButton from "@/components/menu/MenuButton";
 import NavButton from "@/components/menu/NavButton";
-import Card from "@/components/Card";
-import InspectCard from "@/components/InspectCard";
+import Card from "@/components/card/Card";
+import InspectCard from "@/components/card/InspectCard";
 import { Faction } from "@/utils/enums.js";
 import { usePlayerDeck } from "@/utils/context/playerDeck.js";
 import { getDeck } from "@/utils/decks/getDeck.js";
 import { getCard } from "@/utils/decks/getCard.js";
 import { sortDeck } from "@/utils/decks/sort.js";
 import sounds from "@/utils/audio/sounds";
+import menuStyle from "@/styles/menus/deck.module.css";
 
 export default function DeckMenu() {
   const { playerDeck, playerDeckAddCard, playerDeckRemoveCard, playerDeckContainsCard } = usePlayerDeck();
@@ -46,33 +48,22 @@ export default function DeckMenu() {
   };
 
   return (
-    <main className="page-container">
-      <div className="main-menu">
-        <h1>Deck Menu</h1>
-        <div>
-          <button className="menu-button" onClick={() => changeFaction(Faction.NORTHERN_REALMS)}>
-            Northern Realms
-          </button>
-          <button className="menu-button" onClick={() => changeFaction(Faction.NILFGAARD)}>
-            Nilfgaard
-          </button>
-          <button className="menu-button" onClick={() => changeFaction(Faction.SCOIATAEL)}>
-            Scoiatael
-          </button>
-          <button className="menu-button" onClick={() => changeFaction(Faction.MONSTERS)}>
-            Monsters
-          </button>
-          <button className="menu-button" onClick={() => changeFaction(Faction.SKELLIGE)}>
-            Skellige
-          </button>
+    <main className={menuStyle.background}>
+      <div className={`content-container ${menuStyle.container}`}>
+        <div className={menuStyle.top_buttons_container}>
+          <MenuButton handleClick={() => changeFaction(Faction.NORTHERN_REALMS)}>Northern Realms</MenuButton>
+          <MenuButton handleClick={() => changeFaction(Faction.NILFGAARD)}>Nilfgaard</MenuButton>
+          <MenuButton handleClick={() => changeFaction(Faction.SCOIATAEL)}>Scoia&apos;tael</MenuButton>
+          <MenuButton handleClick={() => changeFaction(Faction.MONSTERS)}>Monsters</MenuButton>
+          <MenuButton handleClick={() => changeFaction(Faction.SKELLIGE)}>Skellige</MenuButton>
         </div>
-        <div className="card-containers">
-          <div className="card-container">
+        <div className={menuStyle.card_containers}>
+          <div className={menuStyle.card_container}>
             {currentFactionDeck.map((card) => (
               <Card key={card.id} card={card} scale={0.53} handleClick={handleClick} />
             ))}
           </div>
-          <div className="card-container">
+          <div className={menuStyle.card_container}>
             {playerDeck.map((card) => (
               <Card key={card.id} card={card} scale={0.53} handleClick={handleClick} />
             ))}

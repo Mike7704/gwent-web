@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Howl } from "howler";
 import sounds from "@/utils/audio/sounds";
 import geraltVoiceLines from "@/utils/audio/geralt";
+import logoStyle from "@/styles/components/gwentLogo.module.css";
 
 export default function GwentLogo() {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -32,14 +33,16 @@ export default function GwentLogo() {
   };
 
   return (
-    <Image
-      className="gwent-logo"
-      src="/images/menus/logo.webp"
-      alt="Logo"
-      width={434}
-      height={276}
-      onClick={handleClick}
-      onMouseEnter={handleMouseEnter}
-    />
+    <div className={logoStyle.container}>
+      <Image
+        className={logoStyle.logo}
+        src="/images/menus/logo.webp"
+        alt="Logo"
+        width={448}
+        height={280}
+        onClick={handleClick}
+        onMouseEnter={handleMouseEnter}
+      />
+    </div>
   );
 }

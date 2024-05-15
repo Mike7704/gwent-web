@@ -1,15 +1,20 @@
 "use client";
 import GwentLogo from "@/components/menu/GwentLogo";
+import MenuButton from "@/components/menu/MenuButton";
+import NavButton from "@/components/menu/NavButton";
+import menuStyle from "@/styles/menus/main.module.css";
 
 export default function GlobalError({ error, reset }) {
   return (
-    <main className="flex flex-1 flex-col items-center justify-evenly">
+    <main className={menuStyle.background}>
+      {/*<BackgroundVideo videoSrc="/videos/mainMenu.mp4" />*/}
       <GwentLogo />
-      <h2 className="text-3xl">Error! Something went wrong!</h2>
-      <p>{error.message}</p>
-      <button className="menu-button" onClick={() => reset()}>
-        Try again
-      </button>
+      <div className="content-container">
+        <h2 className="text-3xl">Error! Something went wrong!</h2>
+        <p>{error.message}</p>
+        <MenuButton handleClick={() => reset()}>Try again</MenuButton>
+        <NavButton href="/">Return to main menu</NavButton>
+      </div>
     </main>
   );
 }

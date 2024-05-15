@@ -2,9 +2,9 @@
 import { useState, useEffect } from "react";
 import { CardAbility } from "@/utils/enums";
 import * as Dialog from "@radix-ui/react-dialog";
-import Card from "@/components/Card";
+import Card from "@/components/card/Card";
 import { getCard } from "@/utils/decks/getCard.js";
-import inspectStyle from "@/styles/inspectCard.module.css";
+import inspectStyle from "@/styles/components/inspectCard.module.css";
 
 export default function InspectCard({ card }) {
   const [isVisible, setIsVisible] = useState(false);

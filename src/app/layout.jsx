@@ -1,6 +1,6 @@
 import DisableContextMenu from "@/components/utils/DisableContextMenu";
 import { PlayerDeckProvider } from "@/utils/context/playerDeck.js";
-import MusicPlayer from "@/components/MusicPlayer";
+import MusicPlayer from "@/components/menu/MusicPlayer";
 import "@/styles/reset.css";
 import "@/styles/globals.css";
 

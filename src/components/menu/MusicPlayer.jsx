@@ -5,8 +5,8 @@ import Slider from "rc-slider";
 import { Howl } from "howler";
 import sounds from "@/utils/audio/sounds";
 import songs from "@/utils/audio/songs";
-import "@/styles/volumeSlider.css";
-import musicStyle from "@/styles/musicPlayer.module.css";
+import "@/styles/components/volumeSlider.css";
+import musicStyle from "@/styles/components/musicPlayer.module.css";
 
 export default function MusicPlayer() {
   const [showControls, setShowControls] = useState(false);
@@ -197,7 +197,7 @@ export default function MusicPlayer() {
               onClick={toggleShuffleMode}
               onMouseEnter={handleMouseEnter}
             />
-            {songName && <div className={musicStyle.song_name}>{songName}</div>}
+            {songName && <div className={`gwent-gold-text ${musicStyle.song_name}`}>{songName}</div>}
           </div>
           <Slider
             min={0}
@@ -219,7 +219,7 @@ export default function MusicPlayer() {
             height={42}
             onMouseEnter={handleShowControls}
           />
-          {songName && <div className={musicStyle.song_name}>{songName}</div>}
+          {songName && <div className={`gwent-gold-text ${musicStyle.song_name}`}>{songName}</div>}
         </div>
       )}
     </div>

@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  flex: 0.5;
+  margin-bottom: 1%;
+}
+
+.logo {
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.3)) brightness(110%);
+}

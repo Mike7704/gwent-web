@@ -16,14 +16,14 @@
   position: absolute;
   width: 100%;
   height: 4px;
-  background-color: #0eb573;
+  background-image: linear-gradient(90deg, #f3cf4a, #e2a73e);
   border-radius: 6px;
 }
 .rc-slider-track,
 .rc-slider-tracks {
   position: absolute;
   height: 4px;
-  background-color: #0eb573;
+  background-image: linear-gradient(180deg, #f3cf4a, #e2a73e);
   border-radius: 6px;
 }
 .rc-slider-track-draggable {
@@ -40,8 +40,7 @@
   width: 14px;
   height: 14px;
   margin-top: -5px;
-  background-color: #e4aa25;
-  border: solid 2px #e4aa25;
+  background-image: linear-gradient(0deg, #058d56, #6cfdbb);
   border-radius: 50%;
   cursor: pointer;
   cursor: pointer;

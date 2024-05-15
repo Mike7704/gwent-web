@@ -1,7 +1,7 @@
 import { Faction, CardType, CardRange, CardAbility } from "@/utils/enums";
 import Image from "next/image";
 import sounds from "@/utils/audio/sounds";
-import cardStyle from "@/styles/card.module.css";
+import cardStyle from "@/styles/components/card.module.css";
 
 export default function Card({ card, scale, handleClick }) {
   const width = 370 * scale;
