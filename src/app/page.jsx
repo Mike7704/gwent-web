@@ -5,8 +5,8 @@ import menuStyle from "@/styles/menus/main.module.css";
 
 export default function Home() {
   return (
-    <main className={menuStyle.background}>
-      {/*<BackgroundVideo videoSrc="/videos/mainMenu.mp4" />*/}
+    <main className={menuStyle.background2}>
+      <BackgroundVideo videoSrc="/videos/storeMenu.mp4" />
       <GwentLogo />
       <div className="content-container">
         <NavButton href="/singleplayer">Singleplayer</NavButton>

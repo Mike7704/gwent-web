@@ -4,7 +4,7 @@ import { CardAbility } from "@/utils/enums";
 import * as Dialog from "@radix-ui/react-dialog";
 import Card from "@/components/card/Card";
 import { getCard } from "@/utils/decks/getCard.js";
-import inspectStyle from "@/styles/components/inspectCard.module.css";
+import inspectStyle from "@/styles/menus/inspectCard.module.css";
 
 export default function InspectCard({ card }) {
   const [isVisible, setIsVisible] = useState(false);
@@ -36,26 +36,73 @@ export default function InspectCard({ card }) {
             <div className={inspectStyle.card}>
               <Card card={currentCard} scale={1} />
             </div>
-            <div className={inspectStyle.info}>
-              <h2>{currentCard.ability}</h2>
+            <div className={`gwent-gold-text ${inspectStyle.text} ${inspectStyle.ability_container}`}>
+              <h2>{getAbilityName(currentCard)}</h2>
               <p>{getAbilityDescription(currentCard.ability)}</p>
+            </div>
+            <div className={inspectStyle.target_container}>
               {currentCard.target && (
                 <>
-                  <p>Targets:</p>
                   <div className={inspectStyle.targets}>
                     {currentCard.target.map((target) => (
-                      <Card key={target.id} card={getCard(target)} scale={0.53} handleClick={handleClick} />
+                      <Card key={target.id} card={getCard(target)} scale={0.5} handleClick={handleClick} />
                     ))}
                   </div>
+                  <h2 className={`gwent-gold-text ${inspectStyle.text}`}>Targets</h2>
                 </>
               )}
-              <p>Click anywhere to close.</p>
             </div>
           </Dialog.Content>
         </Dialog.Overlay>
       </Dialog.Portal>
     </Dialog.Root>
   );
+}
+
+function getAbilityName(card) {
+  switch (card.ability) {
+    case CardAbility.AVENGER:
+      return "Avenger";
+    case CardAbility.MORPH:
+      return "Morph";
+    case CardAbility.MARDROEME:
+      return "Mardroeme";
+    case CardAbility.MEDIC:
+      return "Medic";
+    case CardAbility.MORALE:
+      return "Morale Boost";
+    case CardAbility.MUSTER:
+      return "Muster";
+    case CardAbility.SPY:
+      return "Spy";
+    case CardAbility.BOND:
+      return "Tight Bond";
+    case CardAbility.HORN:
+      return "Commander's Horn";
+    case CardAbility.DECOY:
+      return "Decoy";
+    case CardAbility.SCORCH:
+      return "Scorch";
+    case CardAbility.SCORCH_ROW:
+      return "Scorch Row: " + card.range;
+    case CardAbility.DRAW_ENEMY_DISCARD:
+      return "Draw From Opponent";
+
+    case CardAbility.CLEAR:
+      return "Clear Weather";
+    case CardAbility.FROST:
+      return "Biting Frost";
+    case CardAbility.FOG:
+      return "Impenetrable Fog";
+    case CardAbility.RAIN:
+      return "Torrential Rain";
+    case CardAbility.STORM:
+    case CardAbility.NATURE:
+    case CardAbility.WHITEFROST:
+      return card.name;
+    default:
+      return "";
+  }
 }
 
 function getAbilityDescription(ability) {
@@ -102,6 +149,6 @@ function getAbilityDescription(ability) {
     case CardAbility.WHITEFROST:
       return "Reduces the Strength of all Melee and Ranged Units to 1. Ineffective on Hero cards.";
     default:
-      return "No ability";
+      return "";
   }
 }

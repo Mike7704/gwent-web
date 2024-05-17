@@ -1,5 +1,5 @@
 import DisableContextMenu from "@/components/utils/DisableContextMenu";
-import { PlayerDeckProvider } from "@/utils/context/playerDeck.js";
+import { UserProvider } from "@/utils/context/userContext";
 import MusicPlayer from "@/components/menu/MusicPlayer";
 import "@/styles/reset.css";
 import "@/styles/globals.css";
@@ -14,7 +14,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body suppressHydrationWarning={true}>
         <DisableContextMenu>
-          <PlayerDeckProvider>{children}</PlayerDeckProvider>
+          <UserProvider>{children}</UserProvider>
           <MusicPlayer />
         </DisableContextMenu>
       </body>
